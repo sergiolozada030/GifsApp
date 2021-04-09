@@ -35,6 +35,8 @@ export class GifsService {
       localStorage.setItem('historial', JSON.stringify(this._historial));
     }
 
+    localStorage.setItem('current', query);
+
     const params = new HttpParams()
       .set('api_key', this.apiKey)
       .set('q', query)

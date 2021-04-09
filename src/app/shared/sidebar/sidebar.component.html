@@ -7,6 +7,7 @@
       *ngFor="let item of historial"
       href="#"
       class="list-group-item list-item-action"
+      [ngClass]="{ active: current === item }"
       (click)="buscarGif(item)"
     >
       {{ item | titlecase }}

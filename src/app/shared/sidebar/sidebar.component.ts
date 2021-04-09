@@ -7,6 +7,7 @@ import { GifsService } from 'src/app/gifs/services/gifs.service';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  current: string = '';
   constructor(private gifsService: GifsService) {}
 
   get historial() {
@@ -14,6 +15,10 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  ngAfterContentChecked(): void {
+    this.current = localStorage.getItem('current')!;
+  }
 
   buscarGif(termino: string) {
     this.gifsService.buscarGifs(termino);
